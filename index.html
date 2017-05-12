@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Screen Capture</title>
+</head>
+<body onload="init();" style="background-color:#ababab;" >
+<div >
+    <div>
+      <video id="camFeed" width="1280" height="720" autoplay></video>
+  </div>
+</div>
+<script>
+var fs = require("fs");
+//import canvasToImage from 'canvas-to-image';
+
+function init()
+{
+//alert('hi');
+    navigator.webkitGetUserMedia({audio: false, video: {
+      mandatory: {
+              chromeMediaSource: 'screen',
+              maxWidth: 1280,
+              maxHeight: 720
+          },
+          optional: []
+
+    }},
+      function(stream) {
+        document.getElementById('camFeed').src = webkitURL.createObjectURL(stream);
+      },
+      function() {
+        alert("Error");
+      }
+  );
+  c = 0;
+setInterval(function(){
+//alert('hello world');
+var video  = document.getElementById('camFeed');
+var canvas = document.createElement('canvas');
+canvas.width  = video.videoWidth;
+canvas.height = video.videoHeight;
+var ctx = canvas.getContext('2d');
+ctx.drawImage(video, 0, 0);
+c++;
+
+//prompt("yeah",canvas.toDataURL('image/png'));
+    //var canvasImage = canvas.toDataURL("image/png").split(',')[1];
+var dataurl = canvas.toDataURL();
+  dataurl = dataurl.replace(/^data:image\/(png|jpg|jpeg);base64,/, "");
+  require("fs").writeFile("out_"+c+".png", dataurl, 'base64', function(err) {
+    console.log(err);
+  });
+},1000);
+}
+</script>
+</body>
+</html>
