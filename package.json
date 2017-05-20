@@ -1,5 +1,8 @@
 {
-    "name":"user-media",
-    "main":"index.html",
-    "chromium-args" : "--enable-usermedia-screen-capturing"
+  "name": "user-media",
+  "main": "index.html",
+  "chromium-args": "--enable-usermedia-screen-capturing",
+  "dependencies": {
+    "imgur-v2": "^0.2.1"
+  }
 }
