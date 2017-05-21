@@ -16,7 +16,7 @@
 <body onload="init();" style="background-color:#ababab;" >
 <div class="container">
   <div class="row">
-    <div class="col-lg-2"><img src="images/quill_png.png" width="112" height="99" alt=""/></div>
+    <div class="col-lg-2"><img src="images/quill_png.png" width="112" height="99" alt="" id="screenCapResult"/></div>
     <div class="col-lg-3">
       <h1>StoryTeller</h1>
     </div>
@@ -107,18 +107,18 @@ shortcut.on('failed', function (msg) {
   <div class="col-lg-6"><img src="images/20170515222815_1.jpg" alt="" width="806" height="454" class="img-responsive"/></div>
   <div class="col-lg-6">
     <label for="textfield2"> Title:</label>
-    <input type="text" name="textfield" id="textfield">
+    <input type="text" name="textfield" id="imgTitle">
 </div>
   <div class="col-lg-6">&nbsp;</div>
   <div class="col-lg-6">
     <label for="textarea">Description:</label>
 &nbsp;</div>
   <div class="col-lg-6">
-    <textarea name="textarea" id="textarea"></textarea>
+    <textarea name="textarea" id="imgDescription"></textarea>
     &nbsp;</div>
   <div class="col-lg-6">&nbsp;</div>
   <div class="col-lg-6">&nbsp;</div>
-  <button type="button" class="btn btn-primary">Publish to Album</button>
+  <button type="button" class="btn btn-primary" id="publishBtn">Publish to Album</button>
 </div>
 </div>
 <div class="container"> </div>
